@@ -18,6 +18,14 @@ public class Card {
         return faceName;
     }
 
+    /**
+     * This returns a list of valid face names in lowercase
+     * @return
+     */
+    public static List<String> getFaceNames(){
+        return Arrays.asList("two","three","four","five","six","seven",
+                "eight","nine","ten","jack","queen","king","ace");
+    }
 
     /**
      * This method will validate that the argument is in the normal range of playing cards
@@ -26,8 +34,7 @@ public class Card {
      */
     public void setFaceName(String faceName) {
         faceName = faceName.toLowerCase();//converts to lowercase
-        List<String> validFaces = Arrays.asList("two","three","four","five","six","seven",
-                "eight","nine","ten","jack","queen","king","ace");
+        List<String> validFaces = getFaceNames();
         if (validFaces.contains(faceName))
             this.faceName = faceName;
         else
@@ -38,6 +45,10 @@ public class Card {
         return suit;
     }
 
+    public static List<String> getSuits(){
+        return Arrays.asList("hearts", "diamonds", "spades", "clubs");
+    }
+
     /**
      * This method will validate that the argument is in the normal range of suits
      * and will set the instance variable
@@ -45,7 +56,7 @@ public class Card {
      */
     public void setSuit(String suit) {
         suit = suit.toLowerCase();//converts to lowercase
-        List<String> validSuits = Arrays.asList("hearts", "diamonds", "spades", "clubs");
+        List<String> validSuits = getSuits();
         if (validSuits.contains(suit))
             this.suit = suit;
         else
@@ -66,5 +77,15 @@ public class Card {
             return "red";
         else
             return "black";
+    }
+
+    /**
+     * This method will return the value of the card. 1=1, 2=2, 3=3...10=10, jack=11,
+     * queen=12, king=13, ace=14
+     */
+    public int getFaceValue(){
+        //the first face name in position 0 is "two". Adding 2 to the position/index
+        //of each card makes its value
+        return getFaceNames().indexOf(faceName) + 2;
     }
 }
