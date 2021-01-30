@@ -18,6 +18,12 @@ public class Card {
         return faceName;
     }
 
+
+    /**
+     * This method will validate that the argument is in the normal range of playing cards
+     * and will set the instance variable
+     * @param faceName - this is a string to represent the name of the card
+     */
     public void setFaceName(String faceName) {
         faceName = faceName.toLowerCase();//converts to lowercase
         List<String> validFaces = Arrays.asList("two","three","four","five","six","seven",
@@ -32,6 +38,11 @@ public class Card {
         return suit;
     }
 
+    /**
+     * This method will validate that the argument is in the normal range of suits
+     * and will set the instance variable
+     * @param suit - this is a string to represent the suit of the card
+     */
     public void setSuit(String suit) {
         suit = suit.toLowerCase();//converts to lowercase
         List<String> validSuits = Arrays.asList("hearts", "diamonds", "spades", "clubs");
@@ -41,7 +52,19 @@ public class Card {
             throw new IllegalArgumentException(suit + " is not valid. Use one of "+validSuits);
     }
 
+
     public String toString(){
         return faceName + " of " + suit;
+    }
+
+    /**
+     * This method will return the color (red/black)
+     * @return
+     */
+    public String getCardColor(){
+        if (suit.equals("hearts")||suit.equals("diamonds"))
+            return "red";
+        else
+            return "black";
     }
 }
