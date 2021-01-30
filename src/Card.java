@@ -10,7 +10,7 @@ public class Card {
      * Aces are high, will dynamically establish card value with getCardValue()
      */
     public Card(String faceName, String suit){
-        this.faceName=faceName;
+        setFaceName(faceName);
         setSuit(suit);  //this uses the setSuit method made below instead of this. methods
     }
 
@@ -19,7 +19,8 @@ public class Card {
     }
 
     public void setFaceName(String faceName) {
-        this.faceName = faceName;
+        faceName = faceName.toLowerCase();//converts to lowercase
+        List<String> validFaces = Arrays.asList(
     }
 
     public String getSuit() {
