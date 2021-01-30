@@ -20,7 +20,12 @@ public class Card {
 
     public void setFaceName(String faceName) {
         faceName = faceName.toLowerCase();//converts to lowercase
-        List<String> validFaces = Arrays.asList(
+        List<String> validFaces = Arrays.asList("two","three","four","five","six","seven",
+                "eight","nine","ten","jack","queen","king","ace");
+        if (validFaces.contains(faceName))
+            this.faceName = faceName;
+        else
+            throw new IllegalArgumentException(faceName + " is not valid. Use one of "+validFaces);
     }
 
     public String getSuit() {
